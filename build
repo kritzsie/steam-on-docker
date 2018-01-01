@@ -16,8 +16,8 @@ base_args = [
 
 args = {
     "build": [base_args[0], "build", "-f", dirname + "/src/Dockerfile", "-t"] + [base_args[-1], dirname],
-    "run": [base_args[0], "run"] + base_args[1:] + args[1:],
-    "login": [base_args[0], "run", "-it"] + base_args[1:] + ["bash", "--login", "-i"] + args[1:]
+    "run": [base_args[0], "run"] + base_args[1:] + sys.argv[1:],
+    "login": [base_args[0], "run", "-it"] + base_args[1:] + ["bash", "--login", "-i"] + sys.argv[1:]
 }
 
 if __name__ == "__main__":
