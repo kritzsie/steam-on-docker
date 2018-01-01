@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+
+abspath = os.path.abspath(sys.argv[0])
+basename = os.path.basename(abspath)
+dirname = os.path.dirname(abspath)
+
+base_args = ["docker", os.path.split(dirname)[-1]]
+
+args = {
+    "build": [base_args[0], "build", "-f", dirname + "/src/Dockerfile", "-t"] + base_args[1:] + [dirname],
+    "run": [base_args[0], "run"] + base_args[1:],
+    "login": [base_args[0], "run", "-it"] + base_args[1:]
+}
+
+if __name__ == "__main__":
+    os.execvp(base_args[0], args[basename])
