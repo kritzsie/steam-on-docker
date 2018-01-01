@@ -10,7 +10,7 @@ dirname = os.path.dirname(abspath)
 
 base_args = [
     "docker",
-    "-v", dirname + "/Steam:/home/steam/.local/share/Steam"
+    "-v", dirname + "/Steam:/home/steam/.local/share/Steam",
     os.path.split(dirname)[-1]
 ]
 
