@@ -8,4 +8,4 @@ ENV HOME /home/steam
 WORKDIR /home/steam
 VOLUME /home/steam
 
-CMD ["steam"]
+CMD steam
