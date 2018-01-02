@@ -20,7 +20,7 @@ base_args = [
     "-v", "/etc/machine-id:/etc/machine-id:ro",
     "-v", os.environ["HOME"] + "/.pulse-cookie:/home/steam/.pulse-cookie",
     "-v", os.environ["HOME"] + "/.config/pulse:/home/steam/.config/pulse",
-    "-v", os.environ["XDG_RUNTIME_DIR"] + "/pulse:/run/user/1000/pulse",
+    "-v", "/run/user/" + str(os.getuid()) + "/pulse:/run/user/1000/pulse",
     "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
     "-v", dirname + "/Steam:/home/steam/.local/share/Steam",
     os.path.split(dirname)[-1]
